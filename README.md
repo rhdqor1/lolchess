@@ -12,7 +12,7 @@ PHP로 제작한 롤토체스 추천 메타 사이트입니다. Oracle DB와 연
 
 ## 🔌 Oracle DB 연동 방법
 
-1. `db_connect.sample.php`를 복사해서 `db_connect.php` 파일을 생성합니다.
+1. `db_connect.php`를 복사해서
 2. 아래와 같이 본인의 Oracle DB 정보로 수정합니다.
 
 
