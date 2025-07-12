@@ -1,0 +1,198 @@
+/* ───────────────────────────────────────────────────────────────────
+   admin_videos.php 전용 CSS
+   경로: C:\xampp\htdocs\hjs\팀플\videos\style.css
+   ─────────────────────────────────────────────────────────────────── */
+
+/* 공통 레이아웃 */
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+  font-family: "돋움", Dotum, "Malgun Gothic", sans-serif;
+  color: #333;
+}
+
+h1, h2 {
+  margin: 0 0 12px;
+  font-weight: normal;
+  color: #222;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 22px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 6px;
+  margin-bottom: 20px;
+}
+
+/* 메시지 출력(등록/삭제 성공 혹은 오류) */
+.msg {
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  background-color: #e0ffe0; /* 성공 메시지용 연두색 배경 */
+  color: #2d662d;
+  border: 1px solid #2d662d;
+}
+
+/* 오류 메시지 스타일 */
+.error-msg {
+  padding: 10px 15px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  background-color: #ffe0e0; /* 오류 메시지용 연분홍 배경 */
+  color: #662d2d;
+  border: 1px solid #662d2d;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   1) 영상 등록 폼
+   ─────────────────────────────────────────────────────────────────── */
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+}
+
+form label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+form input[type="text"] {
+  width: 100%;
+  max-width: 500px;
+  padding: 8px 10px;
+  margin-bottom: 14px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+form input[type="text"]:focus {
+  outline: none;
+  border-color: #777;
+}
+
+form input[type="submit"], 
+form button {
+  padding: 8px 16px;
+  background-color: #4CAF50;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover,
+form button:hover {
+  background-color: #45a049;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   2) 등록된 영상 목록 (Video Grid)
+   ─────────────────────────────────────────────────────────────────── */
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.video-item {
+  background-color: #fff;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 280px; /* 원하는 카드 너비로 조정 가능 */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-item h3 {
+  font-size: 16px;
+  margin: 0;
+  padding: 12px;
+  background-color: #f0f0f0;
+  color: #333;
+  word-break: break-all;
+}
+
+.video-item .iframe-wrapper {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 비율 유지 */
+  height: 0;
+}
+
+.video-item .iframe-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* 삭제 버튼 */
+.video-item a.delete-btn {
+  display: block;
+  margin: 12px;
+  padding: 6px 10px;
+  background-color: #e74c3c;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 13px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.video-item a.delete-btn:hover {
+  background-color: #c0392b;
+}
+
+/* “유효하지 않은 URL” 경고 텍스트 */
+.invalid-url {
+  padding: 12px;
+  color: #d9534f;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   반응형 처리(화면 크기에 따라 카드 갯수 조정)
+   ─────────────────────────────────────────────────────────────────── */
+@media (max-width: 950px) {
+  .video-item {
+    width: calc(50% - 10px);
+  }
+}
+
+@media (max-width: 600px) {
+  .video-item {
+    width: 100%;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   3) 기타(본문 컨테이너 등)
+   ─────────────────────────────────────────────────────────────────── */
+/* 전체를 감싸는 컨테이너가 필요하다면 아래와 같은 스타일을 추가할 수 있습니다. */
+/*
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+*/
+
+/* 필요하다면 헤더, 네비게이션, 푸터 등 공통 컴포넌트의 스타일을 추가로 정의하세요. */
